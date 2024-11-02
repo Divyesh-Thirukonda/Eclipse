@@ -1,17 +1,10 @@
-import Head from 'next/head';
-import GameGrid from './components/GameGrid';
+// pages/index.js
+import Game from './components/Game';
 
 export default function Home() {
   return (
-    <>
-      <Head>
-        <title>Eclipse Puzzle Game</title>
-        <meta name="description" content="Solve the Eclipse Puzzle!" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <main className="flex justify-center items-center min-h-screen bg-gray-100">
-        <GameGrid />
-      </main>
-    </>
+    <div className="min-h-screen flex items-center justify-center">
+      <Game />
+    </div>
   );
 }
