@@ -5,12 +5,12 @@ import Tile from './Tile';
 
 const initialGrid = [
   // Initialize this with some fixed values
-  [null, 1, null, null, 0, null],
-  [null, null, null, null, null, 0],
-  [1, null, null, null, null, null],
-  [null, null, 1, null, null, null],
-  [null, 0, null, null, null, 1],
-  [0, null, null, 1, null, null],
+  [null, null, null, null, null, null],
+  [null, null, null, null, null, null],
+  [null, null, null, null, null, null],
+  [null, null, null, null, null, null],
+  [null, null, null, null, null, null],
+  [null, null, null, null, null, null],
 ];
 
 const Grid = () => {
@@ -18,6 +18,9 @@ const Grid = () => {
   const [isSolved, setIsSolved] = useState(false);
   const [startTime] = useState(Date.now());
   const [timeTaken, setTimeTaken] = useState(null);
+  const [domainName] = useState("yourdomain.com");
+  const [isButtonClicked, setIsButtonClicked] = useState(false); // New state for button clicked
+  const [buttonText, setButtonText] = useState('Copy Results to Share'); // New state for button text
 
   const handleToggle = (row, col) => {
     setGrid((prevGrid) => {
@@ -36,7 +39,6 @@ const Grid = () => {
       return newGrid;
     });
   };
-
 
   useEffect(() => {
     checkSolution();
@@ -62,11 +64,28 @@ const Grid = () => {
     return true;
   };
 
+  const handleCopy = () => {
+    const message = `🌘I finished today's Eclipse in ${timeTaken} seconds!🌒\n🔥See if you can beat my time at ${domainName}🔥`;
+    navigator.clipboard.writeText(message).then(() => {
+      // alert('Results copied to clipboard!');
+      setIsButtonClicked(true); // Set button clicked state to true
+      setButtonText('Copied!'); // Change the button text to 'Copied!'
+    });
+  };
+
   return (
     <div className="text-center">
       {isSolved ? (
-        <div className="text-green-500 text-xl">
-          🎉 Congratulations! You solved it in {timeTaken} seconds!
+        <div>
+          <div className="text-green-500 text-xl">
+            🎉 Congratulations! You solved it in {timeTaken} seconds!
+          </div>
+          <button 
+            onClick={handleCopy} 
+            className={`mt-4 px-4 py-2 rounded border-2 ${isButtonClicked ? 'bg-white text-black border-blue-500' : 'bg-blue-500 text-white border-blue-500'}`}
+          >
+            {buttonText} {/* Display the button text */}
+          </button>
         </div>
       ) : (
         <div className="grid grid-cols-6 gap-2 mx-auto my-4">
