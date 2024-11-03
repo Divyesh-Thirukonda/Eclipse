@@ -13,7 +13,7 @@ const HowToPlay = () => {
           <li>☀️☀️☀️ (WRONG)</li>
         </ul>
         <li>Each row (and column) must contain the same number of 🌑 and ☀️.</li>
-        <li>The number of solutions is more than or equal to 1</li>
+        <li>There is AT LEAST one solution</li>
         <li>Takes 1-5 minutes</li>
       </ul>
     </div>

@@ -63,7 +63,7 @@ const Grid = () => {
   };
 
   const handleCopy = () => {
-    const message = `🌘I finished today's Eclipse in ${timeTaken} seconds!🌒\n🔥See if you can beat my time at ${domainName}🔥`;
+    const message = `🌘I finished today's Eclipse in ${timeTaken} seconds!🌒\n🔥See if you can beat my time at ${domainName}`;
     navigator.clipboard.writeText(message).then(() => {
       setIsButtonClicked(true);
       setButtonText('Copied!');
