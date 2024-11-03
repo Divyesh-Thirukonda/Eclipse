@@ -16,7 +16,7 @@ const Grid = () => {
   const [isSolved, setIsSolved] = useState(false);
   const [startTime] = useState(Date.now());
   const [timeTaken, setTimeTaken] = useState(null);
-  const [domainName] = useState("yourdomain.com");
+  const [domainName] = useState("https://eclipse-one-opal.vercel.app/");
   const [isButtonClicked, setIsButtonClicked] = useState(false);
   const [buttonText, setButtonText] = useState('Copy Results to Clipboard');
 
