@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react';
 import Tile from './Tile';
 
 const initialGrid = [
-  // Initialize this with some fixed values
   [null, null, null, null, null, null],
   [null, null, null, null, null, null],
   [null, null, null, null, null, null],
@@ -19,8 +18,8 @@ const Grid = () => {
   const [startTime] = useState(Date.now());
   const [timeTaken, setTimeTaken] = useState(null);
   const [domainName] = useState("yourdomain.com");
-  const [isButtonClicked, setIsButtonClicked] = useState(false); // New state for button clicked
-  const [buttonText, setButtonText] = useState('Copy Results to Share'); // New state for button text
+  const [isButtonClicked, setIsButtonClicked] = useState(false);
+  const [buttonText, setButtonText] = useState('Copy Results to Clipboard');
 
   const handleToggle = (row, col) => {
     setGrid((prevGrid) => {
@@ -67,9 +66,8 @@ const Grid = () => {
   const handleCopy = () => {
     const message = `🌘I finished today's Eclipse in ${timeTaken} seconds!🌒\n🔥See if you can beat my time at ${domainName}🔥`;
     navigator.clipboard.writeText(message).then(() => {
-      // alert('Results copied to clipboard!');
-      setIsButtonClicked(true); // Set button clicked state to true
-      setButtonText('Copied!'); // Change the button text to 'Copied!'
+      setIsButtonClicked(true);
+      setButtonText('Copied!');
     });
   };
 
@@ -84,7 +82,7 @@ const Grid = () => {
             onClick={handleCopy} 
             className={`mt-4 px-4 py-2 rounded border-2 ${isButtonClicked ? 'bg-white text-black border-blue-500' : 'bg-blue-500 text-white border-blue-500'}`}
           >
-            {buttonText} {/* Display the button text */}
+            {buttonText}
           </button>
         </div>
       ) : (

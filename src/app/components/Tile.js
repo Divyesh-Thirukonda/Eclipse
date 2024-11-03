@@ -1,4 +1,3 @@
-// components/Tile.js
 import React from 'react';
 
 const Tile = ({ value, fixed, onToggle }) => {
