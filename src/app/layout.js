@@ -13,7 +13,7 @@ const geistMono = localFont({
 });
 
 export const metadata = {
-  title: "🌘 Eclipse 🌒",
+  title: "Eclipse",
   description: "A Clone of the LinkedIn Tango Game!",
 };
 

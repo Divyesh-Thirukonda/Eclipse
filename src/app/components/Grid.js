@@ -2,15 +2,14 @@
 "use client"
 import React, { useEffect, useState } from 'react';
 import Tile from './Tile';
+import { getPuzzleForDate } from '../utils/getPuzzleForDate';
 
-const initialGrid = [
-  [null, null, null, null, null, null],
-  [null, null, null, null, null, null],
-  [null, null, null, null, null, null],
-  [null, null, null, null, null, null],
-  [null, null, null, null, null, null],
-  [null, null, null, null, null, null],
-];
+const today = new Date();
+const puzzleForToday = getPuzzleForDate(today);
+
+console.log("Puzzle for today:", puzzleForToday);
+
+const initialGrid = puzzleForToday;
 
 const Grid = () => {
   const [grid, setGrid] = useState(initialGrid);

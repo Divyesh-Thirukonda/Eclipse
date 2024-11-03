@@ -1,6 +1,11 @@
 import React from 'react';
 
 const Tile = ({ value, fixed, onToggle }) => {
+  if (value === 1) {
+    value = "☀️";
+  } else if (value === 0) {
+    value = "🌑";
+  }
   const displayValue = value === null ? '' : value;
 
   const handleClick = () => {
