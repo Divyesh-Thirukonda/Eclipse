@@ -70,12 +70,21 @@ const Grid = () => {
     });
   };
 
+  function formatSeconds(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = Math.floor(seconds % 60);
+
+    const formattedSeconds = remainingSeconds < 10 ? `0${remainingSeconds}` : remainingSeconds;
+
+    return `${minutes}:${formattedSeconds}`;
+  }
+
   return (
     <div className="text-center">
       {isSolved ? (
         <div>
           <div className="text-green-500 text-xl">
-            🎉 Congratulations! You solved it in {timeTaken} seconds!
+            🎉 Congratulations! You solved it in {formatSeconds(timeTaken)} seconds!
           </div>
           <button 
             onClick={handleCopy} 
